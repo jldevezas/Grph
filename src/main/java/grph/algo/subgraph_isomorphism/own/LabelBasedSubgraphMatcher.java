@@ -1,36 +1,81 @@
-/*
- * (C) Copyright 2009-2013 CNRS.
- *
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the GNU Lesser General Public License
- * (LGPL) version 2.1 which accompanies this distribution, and is available at
- * http://www.gnu.org/licenses/lgpl-2.1.html
- *
- * This library is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
- * Lesser General Public License for more details.
- *
- * Contributors:
+/* (C) Copyright 2009-2013 CNRS (Centre National de la Recherche Scientifique).
 
-    Luc Hogie (CNRS, I3S laboratory, University of Nice-Sophia Antipolis) 
-    Aurelien Lancin (Coati research team, Inria)
-    Christian Glacet (LaBRi, Bordeaux)
-    David Coudert (Coati research team, Inria)
-    Fabien Crequis (Coati research team, Inria)
-    Grégory Morel (Coati research team, Inria)
-    Issam Tahiri (Coati research team, Inria)
-    Julien Fighiera (Aoste research team, Inria)
-    Laurent Viennot (Gang research-team, Inria)
-    Michel Syska (I3S, University of Nice-Sophia Antipolis)
-    Nathann Cohen (LRI, Saclay) 
- */
+Licensed to the CNRS under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The CNRS licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+
+*/
+
+/* Contributors:
+
+Luc Hogie (CNRS, I3S laboratory, University of Nice-Sophia Antipolis) 
+Aurelien Lancin (Coati research team, Inria)
+Christian Glacet (LaBRi, Bordeaux)
+David Coudert (Coati research team, Inria)
+Fabien Crequis (Coati research team, Inria)
+Grégory Morel (Coati research team, Inria)
+Issam Tahiri (Coati research team, Inria)
+Julien Fighiera (Aoste research team, Inria)
+Laurent Viennot (Gang research-team, Inria)
+Michel Syska (I3S, Université Cote D'Azur)
+Nathann Cohen (LRI, Saclay) 
+Julien Deantoni (I3S, Université Cote D'Azur, Saclay) 
+
+*/
+ 
+ 
+/* (C) Copyright 2009-2013 CNRS (Centre National de la Recherche Scientifique).
+
+Licensed to the CNRS under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The CNRS licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+
+*/
+
+/* Contributors:
+
+Luc Hogie (CNRS, I3S laboratory, University of Nice-Sophia Antipolis) 
+Aurelien Lancin (Coati research team, Inria)
+Christian Glacet (LaBRi, Bordeaux)
+David Coudert (Coati research team, Inria)
+Fabien Crequis (Coati research team, Inria)
+Grégory Morel (Coati research team, Inria)
+Issam Tahiri (Coati research team, Inria)
+Julien Fighiera (Aoste research team, Inria)
+Laurent Viennot (Gang research-team, Inria)
+Michel Syska (I3S, Université Cote D'Azur)
+Nathann Cohen (LRI, Saclay) 
+Julien Deantoin (I3S, Université Cote D'Azur, Saclay) 
+
+*/
 
 package grph.algo.subgraph_isomorphism.own;
-
-import grph.Grph;
-import grph.path.Path;
-import grph.properties.Property;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -40,16 +85,21 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import grph.Grph;
+import grph.path.Path;
+import grph.properties.Property;
+import it.unimi.dsi.fastutil.ints.IntSet;
+import toools.collections.primitive.SelfAdaptiveIntSet;
 import toools.math.MathsUtilities;
-import toools.set.DefaultIntSet;
-import toools.set.IntSet;
 
 public abstract class LabelBasedSubgraphMatcher
 {
-	public Set<Grph> findAllMatches(Grph g, Collection<String> patterns, Property vertexLabels, Property edgeLabels)
+	public Set<Grph> findAllMatches(Grph g, Collection<String> patterns,
+			Property vertexLabels, Property edgeLabels)
 	{
 		List<List<Path>> ss = new ArrayList();
-		Map<String, Set<Path>> paths = findAllPathsMatching(g, patterns, vertexLabels, edgeLabels);
+		Map<String, Set<Path>> paths = findAllPathsMatching(g, patterns, vertexLabels,
+				edgeLabels);
 
 		for (Set<Path> s : paths.values())
 		{
@@ -83,11 +133,21 @@ public abstract class LabelBasedSubgraphMatcher
 
 	private static Grph paths2subgraph(Set<Path> paths, Grph g)
 	{
-		IntSet vertices = new DefaultIntSet();
+		List<IntSet> allSets = new ArrayList<>();
+		int n = 0;
 
 		for (Path p : paths)
 		{
-			vertices.addAll(p.getVertexSet());
+			IntSet s = p.toVertexSet();
+			n += s.size();
+			allSets.add(s);
+		}
+
+		IntSet vertices = new SelfAdaptiveIntSet(n);
+
+		for (IntSet s : allSets)
+		{
+			vertices.addAll(s);
 		}
 
 		return g.getSubgraphInducedByVertices(vertices);
@@ -107,7 +167,8 @@ public abstract class LabelBasedSubgraphMatcher
 		return paths;
 	}
 
-	public Set<Path> findPathsMatching(Collection<Path> paths, String pattern, Property vertexLabels, Property edgeLabels)
+	public Set<Path> findPathsMatching(Collection<Path> paths, String pattern,
+			Property vertexLabels, Property edgeLabels)
 	{
 		Set<Path> r = new HashSet<Path>();
 
@@ -122,6 +183,7 @@ public abstract class LabelBasedSubgraphMatcher
 		return r;
 	}
 
-	public abstract String pathToString(Path p, Property vertexLabels, Property edgeLabels);
+	public abstract String pathToString(Path p, Property vertexLabels,
+			Property edgeLabels);
 
 }

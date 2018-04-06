@@ -1,44 +1,90 @@
-/*
- * (C) Copyright 2009-2013 CNRS.
- *
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the GNU Lesser General Public License
- * (LGPL) version 2.1 which accompanies this distribution, and is available at
- * http://www.gnu.org/licenses/lgpl-2.1.html
- *
- * This library is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
- * Lesser General Public License for more details.
- *
- * Contributors:
+/* (C) Copyright 2009-2013 CNRS (Centre National de la Recherche Scientifique).
 
-    Luc Hogie (CNRS, I3S laboratory, University of Nice-Sophia Antipolis) 
-    Aurelien Lancin (Coati research team, Inria)
-    Christian Glacet (LaBRi, Bordeaux)
-    David Coudert (Coati research team, Inria)
-    Fabien Crequis (Coati research team, Inria)
-    Grégory Morel (Coati research team, Inria)
-    Issam Tahiri (Coati research team, Inria)
-    Julien Fighiera (Aoste research team, Inria)
-    Laurent Viennot (Gang research-team, Inria)
-    Michel Syska (I3S, University of Nice-Sophia Antipolis)
-    Nathann Cohen (LRI, Saclay) 
- */
+Licensed to the CNRS under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The CNRS licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+
+*/
+
+/* Contributors:
+
+Luc Hogie (CNRS, I3S laboratory, University of Nice-Sophia Antipolis) 
+Aurelien Lancin (Coati research team, Inria)
+Christian Glacet (LaBRi, Bordeaux)
+David Coudert (Coati research team, Inria)
+Fabien Crequis (Coati research team, Inria)
+Grégory Morel (Coati research team, Inria)
+Issam Tahiri (Coati research team, Inria)
+Julien Fighiera (Aoste research team, Inria)
+Laurent Viennot (Gang research-team, Inria)
+Michel Syska (I3S, Université Cote D'Azur)
+Nathann Cohen (LRI, Saclay) 
+Julien Deantoni (I3S, Université Cote D'Azur, Saclay) 
+
+*/
+ 
+ 
+/* (C) Copyright 2009-2013 CNRS (Centre National de la Recherche Scientifique).
+
+Licensed to the CNRS under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The CNRS licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+
+*/
+
+/* Contributors:
+
+Luc Hogie (CNRS, I3S laboratory, University of Nice-Sophia Antipolis) 
+Aurelien Lancin (Coati research team, Inria)
+Christian Glacet (LaBRi, Bordeaux)
+David Coudert (Coati research team, Inria)
+Fabien Crequis (Coati research team, Inria)
+Grégory Morel (Coati research team, Inria)
+Issam Tahiri (Coati research team, Inria)
+Julien Fighiera (Aoste research team, Inria)
+Laurent Viennot (Gang research-team, Inria)
+Michel Syska (I3S, Université Cote D'Azur)
+Nathann Cohen (LRI, Saclay) 
+Julien Deantoin (I3S, Université Cote D'Azur, Saclay) 
+
+*/
  
  package grph.algo;
 
-import grph.Grph;
-import grph.algo.topology.ClassicalGraphs;
-
 import java.util.Arrays;
 
+import grph.Grph;
+import grph.algo.topology.ClassicalGraphs;
+import it.unimi.dsi.fastutil.ints.Int2IntMap;
+import it.unimi.dsi.fastutil.ints.Int2IntOpenHashMap;
 import toools.math.IntMatrix;
 import toools.text.TextUtilities;
-
-import com.carrotsearch.hppc.IntIntMap;
-import com.carrotsearch.hppc.IntIntOpenHashMap;
-import com.carrotsearch.hppc.cursors.IntCursor;
 
 /**
  * A class that implements the notion of adjacency matrix of a graph.
@@ -47,8 +93,8 @@ import com.carrotsearch.hppc.cursors.IntCursor;
  */
 public class AdjacencyMatrix{
 	private IntMatrix m; 
-	private IntIntMap indicesToVertices;
-	private IntIntMap verticesToIndices;
+	private Int2IntMap indicesToVertices;
+	private Int2IntMap verticesToIndices;
 	
 	public AdjacencyMatrix(Grph g) {
 		int size = g.getNumberOfVertices();
@@ -57,8 +103,8 @@ public class AdjacencyMatrix{
 		int[] vertices = g.getVertices().toIntArray();
 		Arrays.sort(vertices);
 		
-		indicesToVertices = new IntIntOpenHashMap();
-		verticesToIndices = new IntIntOpenHashMap();
+		indicesToVertices = new Int2IntOpenHashMap();
+		verticesToIndices = new Int2IntOpenHashMap();
 		
 		int index = 0;
 		for(int v : vertices) {
@@ -77,11 +123,11 @@ public class AdjacencyMatrix{
 	
 	private AdjacencyMatrix(AdjacencyMatrix original) {
 		m = new IntMatrix(original.m.array);
-		indicesToVertices = new IntIntOpenHashMap();
-		verticesToIndices = new IntIntOpenHashMap();
+		indicesToVertices = new Int2IntOpenHashMap();
+		verticesToIndices = new Int2IntOpenHashMap();
 		
-		for(IntCursor c : original.indicesToVertices.keys()) {
-			int key = c.value;
+		for(Integer c : original.indicesToVertices.keySet()) {
+			int key = c;
 			int v = original.indicesToVertices.get(key);
 			indicesToVertices.put(key, v);
 			verticesToIndices.put(v, key);

@@ -96,16 +96,16 @@ import toools.exceptions.NotYetImplementedException;
 /**
  * The basic data-structure. It mainly defines and implements the data structure
  * required for vertex/edge incidence.
- * 
+ *
  * The methods in this API are written using two rules: 1. they are
  * non-permissive: for example deleting an element that is not in the graph will
  * cause an error
- * 
+ *
  * 2. elements are created on-the-fly, when possible.
- * 
- * 
+ *
+ *
  * @author lhogie
- * 
+ *
  */
 public class InMemoryGrph extends Grph implements Serializable
 {
@@ -192,17 +192,17 @@ public class InMemoryGrph extends Grph implements Serializable
 
 	/**
 	 * Checks if the two given edges have the same vertices incident to them.
-	 * 
+	 *
 	 * @param a
 	 *            an edge
 	 * @param b
 	 *            another edge
 	 * @return true if the two given edges have the same vertices incident to
 	 *         them
-	 * 
+	 *
 	 *         public boolean edgesHaveSameIncidence(int a, int b) { return (a
 	 *         == e.a && b == e.b) || (a == e.b && b == e.a);
-	 * 
+	 *
 	 *         return edgeSet.get(a).equals(edgeSet.get(b)); }
 	 */
 
@@ -242,7 +242,7 @@ public class InMemoryGrph extends Grph implements Serializable
 
 	/**
 	 * Computes the set of vertices incident to the given hyper-edge.
-	 * 
+	 *
 	 * @param edge
 	 *            an hyper-edge
 	 * @return a set of vertices
@@ -256,7 +256,7 @@ public class InMemoryGrph extends Grph implements Serializable
 
 	/**
 	 * Retrieve the set of vertices in this graph.
-	 * 
+	 *
 	 * @return a set of vertices.
 	 */
 	// public IncidenceList<VertexIncidence> getVertices()
@@ -268,7 +268,7 @@ public class InMemoryGrph extends Grph implements Serializable
 
 	/**
 	 * Retrieve the set of edges in this graph.
-	 * 
+	 *
 	 * @return a set of edges.
 	 */
 	// public IncidenceList<EdgeIncidence> getEdges()
@@ -367,7 +367,7 @@ public class InMemoryGrph extends Grph implements Serializable
 
 	/**
 	 * Checks if the given edge is an undirected simple edge.
-	 * 
+	 *
 	 * @param edge
 	 *            an edge
 	 * @return true if the given edge is an undirected simple edge, false
@@ -382,7 +382,7 @@ public class InMemoryGrph extends Grph implements Serializable
 
 	/**
 	 * Checks if the given edge is an undirected hyper edge.
-	 * 
+	 *
 	 * @param edge
 	 *            an edge
 	 * @return true if the given edge is an undirected hyper edge, false
@@ -397,7 +397,7 @@ public class InMemoryGrph extends Grph implements Serializable
 
 	/**
 	 * Adds the given edge connecting the two given vertices.
-	 * 
+	 *
 	 * @param a
 	 *            a vertex
 	 * @param b
@@ -462,7 +462,7 @@ public class InMemoryGrph extends Grph implements Serializable
 
 	/**
 	 * Adds the given arc, connecting the given source and destination vertices.
-	 * 
+	 *
 	 * @param edge
 	 *            the arc to be added
 	 * @param tail
@@ -527,7 +527,7 @@ public class InMemoryGrph extends Grph implements Serializable
 	/**
 	 * Adds the given directed hyper-edge. Initially connects the empty set to
 	 * itself.
-	 * 
+	 *
 	 * @param edge
 	 *            the edge to be added
 	 */
@@ -579,7 +579,7 @@ public class InMemoryGrph extends Grph implements Serializable
 	/**
 	 * Adds the given undirected hyper-edge to this graph. This hyper-edge
 	 * initially has no vertex incident to it.
-	 * 
+	 *
 	 * @param edge
 	 *            the edge to add
 	 */
@@ -598,7 +598,7 @@ public class InMemoryGrph extends Grph implements Serializable
 
 	/**
 	 * Adds the given vertex to the given hyper-edge.
-	 * 
+	 *
 	 * @param edge
 	 * @param vertex
 	 */
@@ -676,7 +676,7 @@ public class InMemoryGrph extends Grph implements Serializable
 
 	/**
 	 * Removes the given vertex from the given hyper-edge.
-	 * 
+	 *
 	 * @param edge
 	 *            an edge
 	 * @param vertex
@@ -742,7 +742,7 @@ public class InMemoryGrph extends Grph implements Serializable
 	/**
 	 * Removes the given vertex from the graph. All incident edges are removed
 	 * first.
-	 * 
+	 *
 	 * @param vertex
 	 *            the vertex to be removed
 	 */
@@ -787,7 +787,7 @@ public class InMemoryGrph extends Grph implements Serializable
 
 	/**
 	 * Remove the given edge from the graph.
-	 * 
+	 *
 	 * @param edge
 	 *            the edge to be removed
 	 */
@@ -854,13 +854,32 @@ public class InMemoryGrph extends Grph implements Serializable
 		}
 		else
 		{
-			throw new NotYetImplementedException();
+            IntSet tailVertices = directedHyperEdgeTail.getValue(edge);
+
+            for (int v : tailVertices.toIntArray())
+            {
+                v_out_only.remove(v, edge);
+            }
+
+            IntSet headVertices = directedHyperEdgeHead.getValue(edge);
+
+            for (int v : headVertices.toIntArray())
+            {
+                v_in_only.remove(v, edge);
+            }
+
+            edgeSet.remove(edge);
+
+            --numberOfDirectedHyperEdges;
+
+            for (TopologyListener l : getTopologyListeners())
+                l.directedHyperEdgeRemoved(this, edge, tailVertices, headVertices);
 		}
 	}
 
 	/**
 	 * Checks whether the given edge is a directed simple edge.
-	 * 
+	 *
 	 * @param edge
 	 *            an edge
 	 * @return
@@ -874,7 +893,7 @@ public class InMemoryGrph extends Grph implements Serializable
 
 	/**
 	 * Checks whether the given edge is a directed hyper edge.
-	 * 
+	 *
 	 * @param edge
 	 *            an edge
 	 * @return
@@ -890,7 +909,7 @@ public class InMemoryGrph extends Grph implements Serializable
 
 	/**
 	 * Assuming the given edge is a directed simple edge, retrieves its tail.
-	 * 
+	 *
 	 * @param edge
 	 *            an edge
 	 * @return the tail of the edge.
@@ -906,7 +925,7 @@ public class InMemoryGrph extends Grph implements Serializable
 
 	/**
 	 * Assuming the given edge is a directed simple edge, retrieves its head.
-	 * 
+	 *
 	 * @param edge
 	 *            an edge
 	 * @return the head of the edge.
@@ -923,7 +942,7 @@ public class InMemoryGrph extends Grph implements Serializable
 	/**
 	 * Assuming the given edge is an undirected simple edge, retrieves one of
 	 * its incident vertices.
-	 * 
+	 *
 	 * @param edge
 	 *            an edge
 	 * @return one of its incident vertices
@@ -941,7 +960,7 @@ public class InMemoryGrph extends Grph implements Serializable
 	/**
 	 * Assuming the given edge is an undirected simple edge, retrieves the
 	 * incident vertex other than thisVertex.
-	 * 
+	 *
 	 * @param edge
 	 *            an edge
 	 * @return one of its incident vertices
@@ -964,7 +983,7 @@ public class InMemoryGrph extends Grph implements Serializable
 
 	/**
 	 * Assuming the given edge is a directed hyper edge, retrieves its tail.
-	 * 
+	 *
 	 * @param edge
 	 *            an edge
 	 * @return the tail of the edge.
@@ -979,7 +998,7 @@ public class InMemoryGrph extends Grph implements Serializable
 
 	/**
 	 * Assuming the given edge is a directed hyper edge, retrieves its head.
-	 * 
+	 *
 	 * @param edge
 	 *            an edge
 	 * @return the head of the edge.
@@ -993,7 +1012,7 @@ public class InMemoryGrph extends Grph implements Serializable
 	}
 
 	/**
-	 * 
+	 *
 	 * @return the number of undirected simple edges in this graph.
 	 */
 	@Override
@@ -1003,7 +1022,7 @@ public class InMemoryGrph extends Grph implements Serializable
 	}
 
 	/**
-	 * 
+	 *
 	 * @return the number of directed simple edges in this graph.
 	 */
 	@Override
@@ -1013,7 +1032,7 @@ public class InMemoryGrph extends Grph implements Serializable
 	}
 
 	/**
-	 * 
+	 *
 	 * @return the number of undirected hyper edges in this graph.
 	 */
 	@Override
@@ -1023,7 +1042,7 @@ public class InMemoryGrph extends Grph implements Serializable
 	}
 
 	/**
-	 * 
+	 *
 	 * @return the number of directed hyper edges in this graph.
 	 */
 	@Override

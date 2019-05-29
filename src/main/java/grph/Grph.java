@@ -21,7 +21,7 @@ under the License.
 
 /* Contributors:
 
-Luc Hogie (CNRS, I3S laboratory, University of Nice-Sophia Antipolis) 
+Luc Hogie (CNRS, I3S laboratory, University of Nice-Sophia Antipolis)
 Aurelien Lancin (Coati research team, Inria)
 Christian Glacet (LaBRi, Bordeaux)
 David Coudert (Coati research team, Inria)
@@ -31,12 +31,12 @@ Issam Tahiri (Coati research team, Inria)
 Julien Fighiera (Aoste research team, Inria)
 Laurent Viennot (Gang research-team, Inria)
 Michel Syska (I3S, Université Cote D'Azur)
-Nathann Cohen (LRI, Saclay) 
-Julien Deantoni (I3S, Université Cote D'Azur, Saclay) 
+Nathann Cohen (LRI, Saclay)
+Julien Deantoni (I3S, Université Cote D'Azur, Saclay)
 
 */
- 
- 
+
+
 /* (C) Copyright 2009-2013 CNRS (Centre National de la Recherche Scientifique).
 
 Licensed to the CNRS under one
@@ -60,7 +60,7 @@ under the License.
 
 /* Contributors:
 
-Luc Hogie (CNRS, I3S laboratory, University of Nice-Sophia Antipolis) 
+Luc Hogie (CNRS, I3S laboratory, University of Nice-Sophia Antipolis)
 Aurelien Lancin (Coati research team, Inria)
 Christian Glacet (LaBRi, Bordeaux)
 David Coudert (Coati research team, Inria)
@@ -70,8 +70,8 @@ Issam Tahiri (Coati research team, Inria)
 Julien Fighiera (Aoste research team, Inria)
 Laurent Viennot (Gang research-team, Inria)
 Michel Syska (I3S, Université Cote D'Azur)
-Nathann Cohen (LRI, Saclay) 
-Julien Deantoin (I3S, Université Cote D'Azur, Saclay) 
+Nathann Cohen (LRI, Saclay)
+Julien Deantoin (I3S, Université Cote D'Azur, Saclay)
 
 */
 
@@ -81,8 +81,8 @@ Julien Deantoin (I3S, Université Cote D'Azur, Saclay)
  *
  * The Grph license grants any use or destribution of both binaries and source code, if
  * a prior notification was made to the Grph development team.
- * Modification of the source code is not permitted. 
- * 
+ * Modification of the source code is not permitted.
+ *
  *
  */
 
@@ -319,110 +319,110 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	// Algorithms
 	private Collection<GrphAlgorithm> algos;
 
-	public transient final GrphAlgorithm<Integer> centerAlgorithm = new MinimumEccentricityGraphCenter()
+	public transient GrphAlgorithm<Integer> centerAlgorithm = new MinimumEccentricityGraphCenter()
 			.cacheResultForGraph(this);
-	public transient final AllClusteringCoefficientsAlgorithm allClusteringCoefficientsAlgorithm = new AllClusteringCoefficientsAlgorithm();
-	public transient final GrphAlgorithm<Double> avgClusteringCoefficientAlgorithm = new AvgClusteringCoefficientAlgorithm()
+	public transient AllClusteringCoefficientsAlgorithm allClusteringCoefficientsAlgorithm = new AllClusteringCoefficientsAlgorithm();
+	public transient GrphAlgorithm<Double> avgClusteringCoefficientAlgorithm = new AvgClusteringCoefficientAlgorithm()
 			.cacheResultForGraph(this);
-	public transient final GrphAlgorithm<DistanceMatrix> unweightedDistanceMatrixAlgorithm = new UnweightedDistanceMatrixAlgorithm()
+	public transient GrphAlgorithm<DistanceMatrix> unweightedDistanceMatrixAlgorithm = new UnweightedDistanceMatrixAlgorithm()
 			.cacheResultForGraph(this);
-	public transient final GrphAlgorithm<PredecessorMatrix> unweightedPredecessorMatrixAlgorithm = new UnweightedPredecessorMatrixAlgorithm()
+	public transient GrphAlgorithm<PredecessorMatrix> unweightedPredecessorMatrixAlgorithm = new UnweightedPredecessorMatrixAlgorithm()
 			.cacheResultForGraph(this);
-	public transient final GrphAlgorithmCache<Double> densityAlgorithm = new DensityAlgorithm()
+	public transient GrphAlgorithmCache<Double> densityAlgorithm = new DensityAlgorithm()
 			.cacheResultForGraph(this);
-	public transient final GrphAlgorithmCache<Double> avgDegreeAlgorithm = new AverageDegreeAlgorithm()
+	public transient GrphAlgorithmCache<Double> avgDegreeAlgorithm = new AverageDegreeAlgorithm()
 			.cacheResultForGraph(this);
-	public transient final GrphAlgorithmCache<Integer> diameterAlgorithm = new DistanceMatrixBasedDiameterAlgorithm()
+	public transient GrphAlgorithmCache<Integer> diameterAlgorithm = new DistanceMatrixBasedDiameterAlgorithm()
 			.cacheResultForGraph(this);
-	public transient final GrphAlgorithm<SearchResult[]> bfsAlgorithm = new BFSAlgorithm()
+	public transient GrphAlgorithm<SearchResult[]> bfsAlgorithm = new BFSAlgorithm()
 			.cacheResultForGraph(this);
-	public transient final GrphAlgorithmCache<Integer> radiusAlgorithm = new RadiusAlgorithm()
+	public transient GrphAlgorithmCache<Integer> radiusAlgorithm = new RadiusAlgorithm()
 			.cacheResultForGraph(this);
-	public transient final GrphAlgorithmCache<Integer> maxInEdgeDegreeAlgorithm = new MaxInEdgeDegreeAlgorithm()
+	public transient GrphAlgorithmCache<Integer> maxInEdgeDegreeAlgorithm = new MaxInEdgeDegreeAlgorithm()
 			.cacheResultForGraph(this);
-	public transient final GrphAlgorithmCache<Integer> maxInVertexDegreeAlgorithm = new MaxInVertexDegreeAlgorithm()
+	public transient GrphAlgorithmCache<Integer> maxInVertexDegreeAlgorithm = new MaxInVertexDegreeAlgorithm()
 			.cacheResultForGraph(this);
-	public transient final GrphAlgorithmCache<Integer> maxOutEdgeDegreeAlgorithm = new MaxOutEdgeDegreeAlgorithm()
+	public transient GrphAlgorithmCache<Integer> maxOutEdgeDegreeAlgorithm = new MaxOutEdgeDegreeAlgorithm()
 			.cacheResultForGraph(this);
-	public transient final GrphAlgorithmCache<Integer> maxOutVertexDegreeAlgorithm = new MaxOutVertexDegreeAlgorithm()
+	public transient GrphAlgorithmCache<Integer> maxOutVertexDegreeAlgorithm = new MaxOutVertexDegreeAlgorithm()
 			.cacheResultForGraph(this);
-	public transient final GrphAlgorithmCache<Integer> minInEdgeDegreeAlgorithm = new MinInEdgeDegreeAlgorithm()
+	public transient GrphAlgorithmCache<Integer> minInEdgeDegreeAlgorithm = new MinInEdgeDegreeAlgorithm()
 			.cacheResultForGraph(this);
-	public transient final GrphAlgorithmCache<Integer> minInVertexDegreeAlgorithm = new MinInVertexDegreeAlgorithm()
+	public transient GrphAlgorithmCache<Integer> minInVertexDegreeAlgorithm = new MinInVertexDegreeAlgorithm()
 			.cacheResultForGraph(this);
-	public transient final GrphAlgorithmCache<Integer> minOutEdgeDegreeAlgorithm = new MinOutEdgeDegreeAlgorithm()
+	public transient GrphAlgorithmCache<Integer> minOutEdgeDegreeAlgorithm = new MinOutEdgeDegreeAlgorithm()
 			.cacheResultForGraph(this);
-	public transient final GrphAlgorithmCache<Integer> minOutVertexDegreeAlgorithm = new MinOutVertexDegreeAlgorithm()
-			.cacheResultForGraph(this);
-
-	public transient final GrphAlgorithmCache<Boolean> completenessAlgorithm = new CompletenessAlgorithm()
-			.cacheResultForGraph(this);
-	public transient final GrphAlgorithmCache<Boolean> connectednessAlgorithm = new ConnectednessAlgorithm()
+	public transient GrphAlgorithmCache<Integer> minOutVertexDegreeAlgorithm = new MinOutVertexDegreeAlgorithm()
 			.cacheResultForGraph(this);
 
-	public transient final GrphAlgorithmCache<MultigraphnessResult> multigraphnessAlgorithm = new MultigraphnessAlgorithm()
+	public transient GrphAlgorithmCache<Boolean> completenessAlgorithm = new CompletenessAlgorithm()
 			.cacheResultForGraph(this);
-	public transient final GrphAlgorithmCache<Boolean> reflexivityAlgorithm = new ReflexivityAlgorithm()
-			.cacheResultForGraph(this);
-	public transient final GrphAlgorithmCache<Boolean> regularityAlgorithm = new RegularityAlgorithm()
-			.cacheResultForGraph(this);
-	public transient final GrphAlgorithmCache<Boolean> simplenessAlgorithm = new SimplenessAlgorithm()
-			.cacheResultForGraph(this);
-	public transient final GrphAlgorithmCache<Boolean> treenessAlgorithm = new TreenessAlgorithm()
-			.cacheResultForGraph(this);
-	public transient final GrphAlgorithmCache<int[]> vertexListAlgorithm = new VertexListAlgorithm()
-			.cacheResultForGraph(this);
-	public transient final GrphAlgorithmCache<Grph> complementAlgorithm = new ComplementAlgorithm()
+	public transient GrphAlgorithmCache<Boolean> connectednessAlgorithm = new ConnectednessAlgorithm()
 			.cacheResultForGraph(this);
 
-	public transient final GrphAlgorithmCache<int[][]> outNeighborsAlgorithm = new VertexAdjacencyAlgorithm.Out()
+	public transient GrphAlgorithmCache<MultigraphnessResult> multigraphnessAlgorithm = new MultigraphnessAlgorithm()
 			.cacheResultForGraph(this);
-	public transient final GrphAlgorithmCache<int[][]> inNeighborsAlgorithm = new VertexAdjacencyAlgorithm.In()
+	public transient GrphAlgorithmCache<Boolean> reflexivityAlgorithm = new ReflexivityAlgorithm()
 			.cacheResultForGraph(this);
-	public transient final GrphAlgorithmCache<int[][]> inOutNeighborsAlgorithm = new VertexAdjacencyAlgorithm.InOut()
+	public transient GrphAlgorithmCache<Boolean> regularityAlgorithm = new RegularityAlgorithm()
 			.cacheResultForGraph(this);
-	public transient final GrphAlgorithmCache<IntSet[]> vertexAdjacenciesAsIDSetsAlgorithm = new OutVertexAdjacencyAsIDSetsAlgorithm()
+	public transient GrphAlgorithmCache<Boolean> simplenessAlgorithm = new SimplenessAlgorithm()
+			.cacheResultForGraph(this);
+	public transient GrphAlgorithmCache<Boolean> treenessAlgorithm = new TreenessAlgorithm()
+			.cacheResultForGraph(this);
+	public transient GrphAlgorithmCache<int[]> vertexListAlgorithm = new VertexListAlgorithm()
+			.cacheResultForGraph(this);
+	public transient GrphAlgorithmCache<Grph> complementAlgorithm = new ComplementAlgorithm()
 			.cacheResultForGraph(this);
 
-	public transient final GrphAlgorithmCache<Grph> lineGraphAlg = new LineGraphAlgorithm()
+	public transient GrphAlgorithmCache<int[][]> outNeighborsAlgorithm = new VertexAdjacencyAlgorithm.Out()
 			.cacheResultForGraph(this);
-	public transient final GrphAlgorithmCache<Result> trianglesAlgorithm = new MatthieuLatapyTriangleAlgorithm()
+	public transient GrphAlgorithmCache<int[][]> inNeighborsAlgorithm = new VertexAdjacencyAlgorithm.In()
 			.cacheResultForGraph(this);
-	public transient final GrphAlgorithmCache<IntSet> isolatedVerticesAlgorithm = new IsolatedVerticesAlgorithm()
+	public transient GrphAlgorithmCache<int[][]> inOutNeighborsAlgorithm = new VertexAdjacencyAlgorithm.InOut()
 			.cacheResultForGraph(this);
-	public transient final GrphAlgorithmCache<AdjacencyMatrix> adjacencyMatrixAlgo = new AdjacencyMatrixAlgorithm()
+	public transient GrphAlgorithmCache<IntSet[]> vertexAdjacenciesAsIDSetsAlgorithm = new OutVertexAdjacencyAsIDSetsAlgorithm()
 			.cacheResultForGraph(this);
-	public transient final GrphAlgorithmCache<IntMatrix> incidenceMatrixAlgo = new IncidenceMatrixAlgorithm()
+
+	public transient GrphAlgorithmCache<Grph> lineGraphAlg = new LineGraphAlgorithm()
 			.cacheResultForGraph(this);
-	public transient final GrphAlgorithmCache<IntSet> inacessibleVertices = new InacessibleVerticesAlgorithm()
+	public transient GrphAlgorithmCache<Result> trianglesAlgorithm = new MatthieuLatapyTriangleAlgorithm()
 			.cacheResultForGraph(this);
-	public transient final GrphAlgorithmCache<Collection<IntSet>> connectedComponentsAlg = new ConnectedComponentsAlgorithm()
+	public transient GrphAlgorithmCache<IntSet> isolatedVerticesAlgorithm = new IsolatedVerticesAlgorithm()
 			.cacheResultForGraph(this);
-	public transient final GrphAlgorithmCache<Boolean> irreflexiveAlgorithm = new IrreflexiveAlgorithm()
+	public transient GrphAlgorithmCache<AdjacencyMatrix> adjacencyMatrixAlgo = new AdjacencyMatrixAlgorithm()
 			.cacheResultForGraph(this);
-	public transient final GrphAlgorithmCache<IntArrayList> topologicalSortingAlg = new TopologicalSortingAlgorithm()
+	public transient GrphAlgorithmCache<IntMatrix> incidenceMatrixAlgo = new IncidenceMatrixAlgorithm()
 			.cacheResultForGraph(this);
-	public transient final GrphAlgorithmCache<Boolean> isCyclicAlgorithm = new IsCyclicAlgorithm()
+	public transient GrphAlgorithmCache<IntSet> inacessibleVertices = new InacessibleVerticesAlgorithm()
 			.cacheResultForGraph(this);
-	public transient final GrphAlgorithmCache<IntSet> girthAlgorithm = new GirthAlgorithm()
+	public transient GrphAlgorithmCache<Collection<IntSet>> connectedComponentsAlg = new ConnectedComponentsAlgorithm()
 			.cacheResultForGraph(this);
-	public transient final GrphAlgorithmCache<Integer> twoSweepDiameterAlg = new TwoSweepBFSDiameterApproximationAlgorithm()
+	public transient GrphAlgorithmCache<Boolean> irreflexiveAlgorithm = new IrreflexiveAlgorithm()
 			.cacheResultForGraph(this);
-	public transient final GrphAlgorithmCache<GraphColoring> bipartiteAlgorithm = new BipartitenessAlgorithm()
+	public transient GrphAlgorithmCache<IntArrayList> topologicalSortingAlg = new TopologicalSortingAlgorithm()
 			.cacheResultForGraph(this);
-	public transient final GrphAlgorithmCache<IntSet> LPMaxMatchingAlgorithm = new LPBasedMaximumMatchingAlgorithm()
+	public transient GrphAlgorithmCache<Boolean> isCyclicAlgorithm = new IsCyclicAlgorithm()
 			.cacheResultForGraph(this);
-	public transient final GrphAlgorithm<IntSet> LPMinVertexCoverAlgorithm = new LPBasedMinimumVertexCoverAlgorithm()
+	public transient GrphAlgorithmCache<IntSet> girthAlgorithm = new GirthAlgorithm()
 			.cacheResultForGraph(this);
-	public transient final GrphAlgorithm<IntSet> bruteForceMinimumVertexCoverAlgorithm = new BruteForceMinimumVertexCoverAlgorithm()
+	public transient GrphAlgorithmCache<Integer> twoSweepDiameterAlg = new TwoSweepBFSDiameterApproximationAlgorithm()
 			.cacheResultForGraph(this);
-	public transient final GrphAlgorithm<IntSet> branchingMinimumVertexCoverAlgorithm = new BranchingMinimumVertexCoverAlgorithm()
+	public transient GrphAlgorithmCache<GraphColoring> bipartiteAlgorithm = new BipartitenessAlgorithm()
 			.cacheResultForGraph(this);
-	public transient final GrphAlgorithm<IntSet> NiedermeierMinimumVertexCoverAlgorithm = new NiedermeierMinimumVertexCoverAlgorithm()
+	public transient GrphAlgorithmCache<IntSet> LPMaxMatchingAlgorithm = new LPBasedMaximumMatchingAlgorithm()
 			.cacheResultForGraph(this);
-	public transient final GrphAlgorithm<IntSet> LPMaximumindependentSetAlgorithm = new LPBasedMaximumIndependentSetAlgorithm()
+	public transient GrphAlgorithm<IntSet> LPMinVertexCoverAlgorithm = new LPBasedMinimumVertexCoverAlgorithm()
 			.cacheResultForGraph(this);
-	public transient final GrphAlgorithm<IntSet> FominGrandoniKratschMaximumindependentSetAlgorithm = new FominGrandoniKratschMaximumindependentSetAlgorithm()
+	public transient GrphAlgorithm<IntSet> bruteForceMinimumVertexCoverAlgorithm = new BruteForceMinimumVertexCoverAlgorithm()
+			.cacheResultForGraph(this);
+	public transient GrphAlgorithm<IntSet> branchingMinimumVertexCoverAlgorithm = new BranchingMinimumVertexCoverAlgorithm()
+			.cacheResultForGraph(this);
+	public transient GrphAlgorithm<IntSet> NiedermeierMinimumVertexCoverAlgorithm = new NiedermeierMinimumVertexCoverAlgorithm()
+			.cacheResultForGraph(this);
+	public transient GrphAlgorithm<IntSet> LPMaximumindependentSetAlgorithm = new LPBasedMaximumIndependentSetAlgorithm()
+			.cacheResultForGraph(this);
+	public transient GrphAlgorithm<IntSet> FominGrandoniKratschMaximumindependentSetAlgorithm = new FominGrandoniKratschMaximumindependentSetAlgorithm()
 			.cacheResultForGraph(this);
 	public final GrphAlgorithm<Collection<IntSet>> tarjanSCC = new Tarjan()
 			.cacheResultForGraph(this);
@@ -465,6 +465,64 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 		}
 	}
 
+	/**
+	 * Created by José Devezas.
+	 * This is required for serialized objects.
+	 */
+	public void initAlgorithms() {
+		centerAlgorithm = new MinimumEccentricityGraphCenter().cacheResultForGraph(this);
+		allClusteringCoefficientsAlgorithm = new AllClusteringCoefficientsAlgorithm();
+		avgClusteringCoefficientAlgorithm = new AvgClusteringCoefficientAlgorithm().cacheResultForGraph(this);
+		unweightedDistanceMatrixAlgorithm = new UnweightedDistanceMatrixAlgorithm().cacheResultForGraph(this);
+		unweightedPredecessorMatrixAlgorithm = new UnweightedPredecessorMatrixAlgorithm().cacheResultForGraph(this);
+		densityAlgorithm = new DensityAlgorithm().cacheResultForGraph(this).cacheResultForGraph(this);
+		avgDegreeAlgorithm = new AverageDegreeAlgorithm().cacheResultForGraph(this);
+		diameterAlgorithm = new DistanceMatrixBasedDiameterAlgorithm().cacheResultForGraph(this);
+		bfsAlgorithm = new BFSAlgorithm().cacheResultForGraph(this).cacheResultForGraph(this);
+		radiusAlgorithm = new RadiusAlgorithm().cacheResultForGraph(this).cacheResultForGraph(this);
+		maxInEdgeDegreeAlgorithm = new MaxInEdgeDegreeAlgorithm().cacheResultForGraph(this);
+		maxInVertexDegreeAlgorithm = new MaxInVertexDegreeAlgorithm().cacheResultForGraph(this);
+		maxOutEdgeDegreeAlgorithm = new MaxOutEdgeDegreeAlgorithm().cacheResultForGraph(this);
+		maxOutVertexDegreeAlgorithm = new MaxOutVertexDegreeAlgorithm().cacheResultForGraph(this);
+		minInEdgeDegreeAlgorithm = new MinInEdgeDegreeAlgorithm().cacheResultForGraph(this);
+		minInVertexDegreeAlgorithm = new MinInVertexDegreeAlgorithm().cacheResultForGraph(this);
+		minOutEdgeDegreeAlgorithm = new MinOutEdgeDegreeAlgorithm().cacheResultForGraph(this);
+		minOutVertexDegreeAlgorithm = new MinOutVertexDegreeAlgorithm().cacheResultForGraph(this);
+		completenessAlgorithm = new CompletenessAlgorithm().cacheResultForGraph(this);
+		connectednessAlgorithm = new ConnectednessAlgorithm().cacheResultForGraph(this);
+		multigraphnessAlgorithm = new MultigraphnessAlgorithm().cacheResultForGraph(this);
+		reflexivityAlgorithm = new ReflexivityAlgorithm().cacheResultForGraph(this);
+		regularityAlgorithm = new RegularityAlgorithm().cacheResultForGraph(this);
+		simplenessAlgorithm = new SimplenessAlgorithm().cacheResultForGraph(this);
+		treenessAlgorithm = new TreenessAlgorithm().cacheResultForGraph(this);
+		vertexListAlgorithm = new VertexListAlgorithm().cacheResultForGraph(this);
+		complementAlgorithm = new ComplementAlgorithm().cacheResultForGraph(this);
+		outNeighborsAlgorithm = new VertexAdjacencyAlgorithm.Out().cacheResultForGraph(this);
+		inNeighborsAlgorithm = new VertexAdjacencyAlgorithm.In().cacheResultForGraph(this);
+		inOutNeighborsAlgorithm = new VertexAdjacencyAlgorithm.InOut().cacheResultForGraph(this);
+		vertexAdjacenciesAsIDSetsAlgorithm = new OutVertexAdjacencyAsIDSetsAlgorithm().cacheResultForGraph(this);
+		lineGraphAlg = new LineGraphAlgorithm().cacheResultForGraph(this).cacheResultForGraph(this);
+		trianglesAlgorithm = new MatthieuLatapyTriangleAlgorithm().cacheResultForGraph(this);
+		isolatedVerticesAlgorithm = new IsolatedVerticesAlgorithm().cacheResultForGraph(this);
+		adjacencyMatrixAlgo = new AdjacencyMatrixAlgorithm().cacheResultForGraph(this);
+		incidenceMatrixAlgo = new IncidenceMatrixAlgorithm().cacheResultForGraph(this);
+		inacessibleVertices = new InacessibleVerticesAlgorithm().cacheResultForGraph(this);
+		connectedComponentsAlg = new ConnectedComponentsAlgorithm().cacheResultForGraph(this);
+		irreflexiveAlgorithm = new IrreflexiveAlgorithm().cacheResultForGraph(this);
+		topologicalSortingAlg = new TopologicalSortingAlgorithm().cacheResultForGraph(this);
+		isCyclicAlgorithm = new IsCyclicAlgorithm().cacheResultForGraph(this);
+		girthAlgorithm = new GirthAlgorithm().cacheResultForGraph(this).cacheResultForGraph(this);
+		twoSweepDiameterAlg = new TwoSweepBFSDiameterApproximationAlgorithm().cacheResultForGraph(this);
+		bipartiteAlgorithm = new BipartitenessAlgorithm().cacheResultForGraph(this);
+		LPMaxMatchingAlgorithm = new LPBasedMaximumMatchingAlgorithm().cacheResultForGraph(this);
+		LPMinVertexCoverAlgorithm = new LPBasedMinimumVertexCoverAlgorithm().cacheResultForGraph(this);
+		bruteForceMinimumVertexCoverAlgorithm = new BruteForceMinimumVertexCoverAlgorithm().cacheResultForGraph(this);
+		branchingMinimumVertexCoverAlgorithm = new BranchingMinimumVertexCoverAlgorithm().cacheResultForGraph(this);
+		NiedermeierMinimumVertexCoverAlgorithm = new NiedermeierMinimumVertexCoverAlgorithm().cacheResultForGraph(this);
+		LPMaximumindependentSetAlgorithm = new LPBasedMaximumIndependentSetAlgorithm().cacheResultForGraph(this);
+		FominGrandoniKratschMaximumindependentSetAlgorithm = new FominGrandoniKratschMaximumindependentSetAlgorithm().cacheResultForGraph(this);
+	}
+
 	public Grph(String name, int nbVertices, int nbEdges)
 	{
 		verticesLabel = new StringProperty(name + ".vertex labels", nbVertices);
@@ -485,7 +543,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	/**
 	 * Checks if this graph is an hypergraph or not (i.e. it has at least one
 	 * hyper-edge)
-	 * 
+	 *
 	 * @return true if this graph is directed
 	 */
 	public boolean isHypergraph()
@@ -496,7 +554,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	/**
 	 * Tarjan's algorithm. http://en.wikipedia.org/wiki/Tarjan%27
 	 * s_strongly_connected_components_algorithm
-	 * 
+	 *
 	 * @return
 	 */
 	public Collection<IntSet> getStronglyConnectedComponents()
@@ -512,7 +570,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	/**
 	 * Checks if this graph is mixed or not (i.e. at least two of its edges are
 	 * of different nature)
-	 * 
+	 *
 	 * @return true if this graph is mixed
 	 */
 	public boolean isMixed()
@@ -543,7 +601,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Computes the set of properties applicable to this graph.
-	 * 
+	 *
 	 * @return
 	 */
 	public Collection<Property> getProperties()
@@ -627,7 +685,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Loads the graph from the given URL.
-	 * 
+	 *
 	 * @param the
 	 *            URL where the graph data will be read from.
 	 * @return a new graph, build from the data at the given URL.
@@ -679,7 +737,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Post this graph this Grph website.
-	 * 
+	 *
 	 * @return the URL where this graph can be retrieved from.
 	 * @throws IOException
 	 */
@@ -702,7 +760,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Computes the complement graph for this graph.
-	 * 
+	 *
 	 * @return the complement graph.
 	 */
 	public Grph getComplement()
@@ -724,7 +782,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Computes the line graph of this graph.
-	 * 
+	 *
 	 * @return the line graph.
 	 */
 	public Grph getLineGraph()
@@ -734,7 +792,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Computes n iterations of the "line graph" operation on this graph.
-	 * 
+	 *
 	 * @param n
 	 *            the number of iterations to perform
 	 * @return the n-th line graph of this graph
@@ -756,7 +814,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Checks if this graph has only undirected simple edges.
-	 * 
+	 *
 	 * @return true, if all edges in this graph are simple edges, false
 	 *         otherwise.
 	 */
@@ -767,7 +825,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Checks if this graph has only directed simple edges.
-	 * 
+	 *
 	 * @return true if all edges in this graph are directed edges, false
 	 *         otherwise.
 	 */
@@ -786,7 +844,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Checks if the given two vertices are connected.
-	 * 
+	 *
 	 * @param src
 	 *            a vertex
 	 * @param dest
@@ -801,7 +859,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	/**
 	 * Computes the set of edges incident to vertices incident to the given
 	 * edge.
-	 * 
+	 *
 	 * @param e
 	 *            an edge
 	 * @return a set of edges
@@ -827,7 +885,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Returns an (hyper)edge or arc that connects src and dest
-	 * 
+	 *
 	 * @param src
 	 * @param dest
 	 * @return
@@ -936,7 +994,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Computes the average clustering coefficient of this graph.
-	 * 
+	 *
 	 * @return the average clustering coefficient the of this graph.
 	 */
 	public double getAverageClusteringCoefficient()
@@ -964,7 +1022,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	 * <code>degree</code>. For directed graphs, no distinction is made between
 	 * in-edges and out-edges. To specify this, see
 	 * {@link Grph#getVerticesOfDegree(int, DIRECTION)}
-	 * 
+	 *
 	 * @param degree
 	 * @return
 	 */
@@ -978,7 +1036,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	/**
 	 * Returns the subset of vertices that have a degree at least
 	 * <code>degree</code>. Designed only for simple, undirected graphs
-	 * 
+	 *
 	 * @param minDegree
 	 * @return
 	 */
@@ -1001,7 +1059,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	 * Returns the subset of vertices that have a in-degree or out-degree equal
 	 * to <code>degree</code>, depending on the <code>dir</code> parameter's
 	 * value.
-	 * 
+	 *
 	 * @param degree
 	 * @return
 	 */
@@ -1025,7 +1083,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	// //////////////////////////////////////////////////////////////////////////////
 	/**
 	 * Checks if this graph contains the given graph.
-	 * 
+	 *
 	 * @param g
 	 * @return true if this graph contains the given graph, false otherwise
 	 */
@@ -1052,7 +1110,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	}
 
 	/**
-	 * 
+	 *
 	 * @param A
 	 *            a set of vertices
 	 * @param B
@@ -1079,7 +1137,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	/**
 	 * Computes the subgraph induced by the given set of vertices. The class of
 	 * the returned graph is the same as the class of this graph.
-	 * 
+	 *
 	 * @param vertices
 	 * @return a new graph
 	 */
@@ -1133,7 +1191,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	/**
 	 * Computes the subgraph induced by the given set of edges. The class of the
 	 * returned graph is the same as the class of this graph.
-	 * 
+	 *
 	 * @param edges
 	 * @return a new graph
 	 */
@@ -1174,7 +1232,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	/**
 	 * Assigns the given color to all vertices in the given set. This operation
 	 * dynamically changes the graphical representations of this graph.
-	 * 
+	 *
 	 * @param vertices
 	 *            the set of vertices for which the color will be set
 	 * @param color
@@ -1196,7 +1254,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	/**
 	 * Assigns the given color to all edges in the given set. This operation
 	 * dynamically changes the graphical representations of this graph.
-	 * 
+	 *
 	 * @param edges
 	 *            the set of edges for which the color will be set
 	 * @param color
@@ -1214,7 +1272,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	 * Assigns the given color to all vertices and edges in the given graph.
 	 * This operation dynamically changes the graphical representations of this
 	 * graph.
-	 * 
+	 *
 	 * @param subgraph
 	 *            the graph that must be selected
 	 * @param color
@@ -1250,7 +1308,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	 * The girth of a graph is defined as the length of a shortest cycle, or
 	 * infinite if the graph is acyclic. Since we cannot test infinity, the
 	 * girth of an acyclic graph is here defined as 0.
-	 * 
+	 *
 	 * @return the girth of the graph
 	 */
 	public int getGirth()
@@ -1296,7 +1354,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Tests if the given set in a dominating set of this graph.
-	 * 
+	 *
 	 * @param s
 	 * @return
 	 */
@@ -1316,7 +1374,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Tests if the given set is an independent set (a.k.a. stable set)
-	 * 
+	 *
 	 * @param s
 	 * @return
 	 */
@@ -1343,7 +1401,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Computes if the given set of edges forms a matching of this graph.
-	 * 
+	 *
 	 * @param s
 	 * @return
 	 */
@@ -1370,7 +1428,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Tests if the given set in a vertex cover of this graph.
-	 * 
+	 *
 	 * @param s
 	 * @return
 	 */
@@ -1389,7 +1447,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Computes a maximum (cardinality) matching.
-	 * 
+	 *
 	 * @return the edges set of a maximum matching
 	 */
 	public IntSet getMaximumMatching()
@@ -1419,7 +1477,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	 * Computes a vertex cover of minimum cardinality. By default, the algorithm
 	 * used for is Niedermeier's. You can specify another algorithm by giving
 	 * its name as a parameter (see below).
-	 * 
+	 *
 	 * @return
 	 */
 	public IntSet getMinimumVertexCover()
@@ -1429,7 +1487,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Computes a minimum vertex cover by applying the specified algorithm.
-	 * 
+	 *
 	 * @return
 	 */
 	public IntSet getMinimumVertexCover(MinVertexCoverAlgorithm algorithm)
@@ -1465,7 +1523,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Computes a independent set of maximum cardinality, based on
-	 * 
+	 *
 	 * @return
 	 */
 	public IntSet getMaximumIndependentSet()
@@ -1489,7 +1547,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Computes the number of triangles in the graph.
-	 * 
+	 *
 	 * @return the number of triangles.
 	 */
 	public int getNumberOfTriangles()
@@ -1534,7 +1592,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Lists all graph algorithms that employ a cache.
-	 * 
+	 *
 	 * @return all caching algorithms
 	 */
 	public final Collection<GrphAlgorithmCache> listCachingGraphAlgorithms()
@@ -1575,7 +1633,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	/**
 	 * Connect each vertex to its k-closest neighbours, according to the current
 	 * topology.
-	 * 
+	 *
 	 * @param k
 	 *            the number of neighbours to connect to.
 	 */
@@ -1588,7 +1646,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Connect vertices currently in the graph as a grid of dimension (w, h).
-	 * 
+	 *
 	 * @param width
 	 * @param height
 	 */
@@ -1600,7 +1658,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	/**
 	 * Connect vertices currently in the graph as a DIRECTED grid of dimension
 	 * (w, h).
-	 * 
+	 *
 	 * @param width
 	 * @param height
 	 */
@@ -1611,7 +1669,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Connect vertices currently in the graph as a grid of dimension (w, h).
-	 * 
+	 *
 	 * @param width
 	 * @param height
 	 * @param directed
@@ -1635,7 +1693,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	 * Connects the given vertices with a simple edge created on-the-fly.
 	 * Whether the new edge will be directed or not depends on the directed
 	 * parameter.
-	 * 
+	 *
 	 * @param src
 	 *            a vertex
 	 * @param dest
@@ -1654,7 +1712,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	/**
 	 * Connects the given vertices with the given simple edge. Whether the new
 	 * edge will be directed or not depends on the directed parameter.
-	 * 
+	 *
 	 * @param src
 	 *            a vertex
 	 * @param dest
@@ -1696,7 +1754,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Computes if the two given sets form a cut of this graph.
-	 * 
+	 *
 	 * @param a
 	 *            a set of vertices
 	 * @param b
@@ -1718,7 +1776,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Computes if the given sets form a cut of this graph.
-	 * 
+	 *
 	 * @param setsOfVertices
 	 *            sets of vertices
 	 * @return true if the sets form a cut of this graph, false otherwise.
@@ -1762,7 +1820,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	/**
 	 * Connects the vertices in the graph according to the
 	 * Random-Newman-Watts-Strogatz topology generation scheme.
-	 * 
+	 *
 	 * @param k
 	 *            the distance of the neighbours to which each vertex is
 	 *            attached
@@ -1785,7 +1843,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Computes the edges describing the cut formed by the two given sets.
-	 * 
+	 *
 	 * @param a
 	 *            a set of vertices
 	 * @param b
@@ -1826,7 +1884,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Compute the size of the cut.
-	 * 
+	 *
 	 * @param a
 	 *            a set of vertices
 	 * @param b
@@ -1840,7 +1898,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Disconnect the two given vertices.
-	 * 
+	 *
 	 * @param src
 	 *            a vertex
 	 * @param destination
@@ -1885,7 +1943,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	/**
 	 * Removes the given vertices from the graph. Incident simple edges are also
 	 * removed. Hyperedges are kept.
-	 * 
+	 *
 	 * @param vertices
 	 *            the vertices to be removed
 	 */
@@ -1900,7 +1958,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	/**
 	 * Removes the given vertices from the graph. Incident simple edges are also
 	 * removed. Hyperedges are kept.
-	 * 
+	 *
 	 * @param vertices
 	 *            the set of vertices to be removed
 	 */
@@ -1929,7 +1987,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Computes the eccentricity of the given vertex.
-	 * 
+	 *
 	 * @param v
 	 * @return
 	 */
@@ -1945,7 +2003,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Checks if this graph contains the given graph.
-	 * 
+	 *
 	 * @param backingGrph
 	 * @return true if this graph contains the given graph, false, otherwise.
 	 */
@@ -1957,7 +2015,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Checks if this graph equals the given graph.
-	 * 
+	 *
 	 * @param g
 	 * @return true if this graph contains the given graph.
 	 */
@@ -1985,7 +2043,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	/**
 	 * Compares this graph and the given graph and returns the first difference
 	 * found.
-	 * 
+	 *
 	 * @param g
 	 * @return the first difference that is found between the two graphs.
 	 */
@@ -2087,7 +2145,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	/**
 	 * Gets the nature of the given edge (undirected simple edge, directed
 	 * simple edge, undirected hyper-edge or directed-hyperedge).
-	 * 
+	 *
 	 * @param e
 	 * @return
 	 */
@@ -2135,7 +2193,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Computes the set of edges incident to the given vertex.
-	 * 
+	 *
 	 * @param thisVertex
 	 *            a vertex
 	 * @return a set of edges
@@ -2169,7 +2227,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	/**
 	 * Computes the set of out-edges for the given vertex. This set may contain
 	 * edges or any types.
-	 * 
+	 *
 	 * @param v
 	 *            a vertex
 	 * @return a set of edges
@@ -2187,7 +2245,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	/**
 	 * Computes the set of out-edges for the given vertex. This set may contain
 	 * edges or any types.
-	 * 
+	 *
 	 * @param v
 	 *            a vertex
 	 * @return a set of edges
@@ -2202,7 +2260,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	/**
 	 * Computes the set of out-neighbors of the given vertex. Since this
 	 * operation is frequent, its result is cached.
-	 * 
+	 *
 	 * @param v
 	 * @return
 	 */
@@ -2270,7 +2328,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Adds an edge connecting the two given vertices.
-	 * 
+	 *
 	 * @param v1
 	 *            a vertex
 	 * @param v2
@@ -2290,7 +2348,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	/**
 	 * Creates a new vertex in the graph. This new vertex will be the lowest
 	 * natural number available.
-	 * 
+	 *
 	 * @return the newly created vertex
 	 */
 	public int addVertex()
@@ -2327,7 +2385,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Checks if the given edge is a simple edge.
-	 * 
+	 *
 	 * @param edge
 	 *            an edge
 	 * @return true if the given edge is a simple one, false otherwise
@@ -2345,7 +2403,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Disconnect the given vertex, i.e. remove all edges incident to it.
-	 * 
+	 *
 	 * @param v
 	 *            the vertex to be isolated
 	 */
@@ -2427,7 +2485,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Computes the set of vertices incident to the given edge.
-	 * 
+	 *
 	 * @param thisEdge
 	 * @return
 	 */
@@ -2563,7 +2621,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Obtains the list of topology listeners for this graph.
-	 * 
+	 *
 	 * @return the list of listeners
 	 */
 	public List<TopologyListener> getTopologyListeners()
@@ -2573,7 +2631,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Checks if this graph is directed or not (i.e. all its edges are directed)
-	 * 
+	 *
 	 * @return true if this graph is directed
 	 */
 	public boolean isDirected()
@@ -2583,7 +2641,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Computes a native-Grph textual expression of this graph.
-	 * 
+	 *
 	 * @return an ASCII expression for this graph.
 	 */
 	public String toGrphText()
@@ -2602,10 +2660,10 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 		return new ADJTextWriter().printGraph(this);
 	}
 
-	
+
 	/**
 	 * Computes a native-Grph binary expression of this graph.
-	 * 
+	 *
 	 * @return an binary expression for this graph.
 	 */
 	public byte[] toGrphBinary()
@@ -2615,7 +2673,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Computes a GraphML (XML) expression of this graph.
-	 * 
+	 *
 	 * @return Computes a string containing the GraphML (XML) expression of this
 	 *         graph.
 	 */
@@ -2626,7 +2684,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Computes a GraphViz expression of this graph.
-	 * 
+	 *
 	 * @return Computes a string containing a GraphViz expression of this graph.
 	 */
 	public String toDot()
@@ -2637,7 +2695,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	/**
 	 * Computes the exact diameter of this graph. The value is cached until the
 	 * graph has changed.
-	 * 
+	 *
 	 * @return the diameter the of this graph.
 	 */
 	public int getDiameter()
@@ -2648,7 +2706,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	/**
 	 * Computes the maximum flow from the given source to the given destination.
 	 * There must exist a path between the source and the destination.
-	 * 
+	 *
 	 * @param s
 	 *            a source vertex
 	 * @param t
@@ -2664,7 +2722,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	/**
 	 * Computes the exact density of this graph. The value is cached until the
 	 * graph has changed.
-	 * 
+	 *
 	 * @return the diameter the of this graph.
 	 */
 	public double getDensity()
@@ -2675,7 +2733,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	/**
 	 * Computes the exact radius of this graph. The value is cached until the
 	 * graph has changed.
-	 * 
+	 *
 	 * @return the diameter the of this graph.
 	 */
 	public int getRadius()
@@ -2685,7 +2743,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Checks if this graph is a null graph.
-	 * 
+	 *
 	 * @return true if this graph is a null graph, false otherwise.
 	 */
 	public boolean isNull()
@@ -2695,7 +2753,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Checks if this graph is a trivial graph.
-	 * 
+	 *
 	 * @return true if this graph is a trivial graph.
 	 */
 	public boolean isTrivial()
@@ -2745,7 +2803,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Checks if this graph is a complete graph.
-	 * 
+	 *
 	 * @return true if this graph is a complete graph, false otherwise.
 	 */
 	public boolean isComplete()
@@ -2755,7 +2813,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Checks if this graph is made of one single partition
-	 * 
+	 *
 	 * @return true if this graph is a connected graph, false otherwise.
 	 */
 	public boolean isConnected()
@@ -2765,7 +2823,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Checks if this graph is a reflexive graph.
-	 * 
+	 *
 	 * @return true if this graph is a reflexive graph, false otherwise.
 	 */
 	public boolean isReflexive()
@@ -2775,7 +2833,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Checks if this graph is a regular graph.
-	 * 
+	 *
 	 * @return true if this graph is a regular graph, false otherwise.
 	 */
 	public boolean isRegular()
@@ -2803,7 +2861,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	}
 
 	/**
-	 * 
+	 *
 	 * @return the number of hyper edges in this graph.
 	 */
 	public int getNumberOfHyperEdges()
@@ -2812,7 +2870,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	}
 
 	/**
-	 * 
+	 *
 	 * @return the number of simple edges in this graph.
 	 */
 	public int getNumberOfSimpleEdges()
@@ -2821,7 +2879,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	}
 
 	/**
-	 * 
+	 *
 	 * @return the number of directed edges in this graph.
 	 */
 	public int getNumberOfDirectedEdges()
@@ -2830,7 +2888,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	}
 
 	/**
-	 * 
+	 *
 	 * @return the number of undirected edges in this graph.
 	 */
 	public int getNumberOfUndirectedEdges()
@@ -2840,7 +2898,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Checks if this graph is has multiple edges in it.
-	 * 
+	 *
 	 * @return true if this graph has multiple edges, false otherwise.
 	 */
 	public boolean hasMultipleEdges()
@@ -2850,7 +2908,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Checks if this graph is a tree.
-	 * 
+	 *
 	 * @return true if this graph is a tree, false otherwise.
 	 */
 	public boolean isTree()
@@ -2860,9 +2918,9 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Computes the predecessor matrix for this graph.
-	 * 
+	 *
 	 * @param weighted
-	 * 
+	 *
 	 * @return the predecessor matrix for this graph. public PredecessorMatrix
 	 *         getPredecessorMatrix(boolean weighted) { return weighted ?
 	 *         weightedPredecessorMatrixAlgorithm.compute(this) :
@@ -2871,7 +2929,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Computes the version of the Grph library installed.
-	 * 
+	 *
 	 * @return a string denoting the version of Grph.
 	 */
 	public static Version getVersion()
@@ -2968,7 +3026,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Performs a random change in this graph.
-	 * 
+	 *
 	 * @param r
 	 */
 	public void performRandomTopologicalChange(Random r)
@@ -3030,7 +3088,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Adds an arc connecting the given source and destination vertices.
-	 * 
+	 *
 	 * @param tail
 	 *            the source of the arc
 	 * @param head
@@ -3050,7 +3108,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Computes the set of isolated vertices in this graph.
-	 * 
+	 *
 	 * @return a set of vertices
 	 */
 	public IntSet getIsolatedVertices()
@@ -3060,7 +3118,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Computes the order of this graph.
-	 * 
+	 *
 	 * @return the order of this graph.
 	 */
 	public int getOrder()
@@ -3070,7 +3128,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Computes the number of vertices in this graph.
-	 * 
+	 *
 	 * @return the number of vertices in this graph.
 	 */
 	public int getNumberOfVertices()
@@ -3081,7 +3139,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	/**
 	 * Computes the set of neighbors of the given vertex, cumulating in and out
 	 * neighbors.
-	 * 
+	 *
 	 * @param v
 	 *            a vertex
 	 * @return the set of neighbors of v
@@ -3114,7 +3172,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	 * Computes the (open) neighborhood of the set s of vertices (that is the
 	 * set of vertices that have at least one neighbour in s, and do not belong
 	 * to s)
-	 * 
+	 *
 	 * @param s
 	 *            a set of vertices
 	 * @return the set of (open) neighbors of s
@@ -3131,7 +3189,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Computes different types of degrees of the given vertex.
-	 * 
+	 *
 	 * @param v
 	 *            a vertex
 	 * @param type
@@ -3473,7 +3531,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Computes the set of self-loops incident to the given vertex
-	 * 
+	 *
 	 * @param v
 	 *            any vertex belonging to the graph
 	 * @return the set of self-loops (edges) incident to v
@@ -3496,7 +3554,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Checks whether the given edge is a self-loop or not.
-	 * 
+	 *
 	 * @return true if the given edge is a loop
 	 */
 	public boolean isLoop(int edge)
@@ -3523,7 +3581,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Checks if the given vertex has self-loops on it.
-	 * 
+	 *
 	 * @param v
 	 *            a vertex
 	 * @return true if vertex v has a loop, false otherwise
@@ -3546,7 +3604,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	/**
 	 * Returns a set of vertices that are inaccessible (e.g. no edge head to
 	 * them)
-	 * 
+	 *
 	 * @param
 	 * @param
 	 * @param graph
@@ -3559,7 +3617,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Computes the set of connected component on this graph.
-	 * 
+	 *
 	 * @return a set of vertex sets, each described a connected component
 	 */
 	public Collection<IntSet> getConnectedComponents()
@@ -3569,7 +3627,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Connect the vertices in this graph as chain.
-	 * 
+	 *
 	 * @param directed
 	 *            whether edges should be directed or not
 	 */
@@ -3583,7 +3641,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	/**
 	 * Computes the connected component containing the given vertex, according
 	 * to the given search direction.
-	 * 
+	 *
 	 * @param vertex
 	 *            a vertex
 	 * @param direction
@@ -3631,7 +3689,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Checks if this graph is a simple graph
-	 * 
+	 *
 	 * @return true is this graph is a simple graph, false otherwise.
 	 */
 	public boolean isSimple()
@@ -3641,7 +3699,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Checks if this graph is an irreflexive graph
-	 * 
+	 *
 	 * @return true is this graph is an irreflexive graph, false otherwise.
 	 */
 	public boolean isIrreflexive()
@@ -3651,7 +3709,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Computes a degree distribution for this graph
-	 * 
+	 *
 	 * @param type
 	 *            the type of the distribution (edge or vertex)
 	 * @param dir
@@ -3672,7 +3730,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Checks if the given vertex is a simplicial one.
-	 * 
+	 *
 	 * @param v
 	 *            a vertex
 	 * @return true if vertex v is simplicial, false otherwise.
@@ -3686,7 +3744,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Prunes this graph (remove leaves)
-	 * 
+	 *
 	 * @param recursive
 	 *            if pruning should continue while there are still leaves in
 	 *            this graph
@@ -3699,7 +3757,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Removes all vertices matching the given filter.
-	 * 
+	 *
 	 * @param filter
 	 *            a vertex filter
 	 * @param recursive
@@ -3728,7 +3786,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Checks if the given set of vertices describes a clique in this graph.
-	 * 
+	 *
 	 * @param s
 	 *            a set of vertices
 	 * @return true if s is a clique in this graph, false otherwise.
@@ -3757,7 +3815,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	/**
 	 * Checks if this graph has a cycle, by initiating the search from the given
 	 * source. This method is useful in the case of digraphs.
-	 * 
+	 *
 	 * @param src
 	 *            a vertex
 	 * @return true if a cycle has been found, false otherwise.
@@ -3807,7 +3865,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Topological sort of the vertices in this graph.
-	 * 
+	 *
 	 * @return
 	 */
 	public IntArrayList sortTopologically()
@@ -3829,7 +3887,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Creates n vertices in this graph.
-	 * 
+	 *
 	 * @param n
 	 *            the number of vertices to be created.
 	 */
@@ -3849,7 +3907,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	/**
 	 * Checks whether this graph is cyclic or not (o circuit in the case of
 	 * digraphs).
-	 * 
+	 *
 	 * @return true is this graph has at least one cycle (or circuit).
 	 */
 	public boolean isCyclic()
@@ -3859,7 +3917,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Computes a GLP topology from the vertices in the graph.
-	 * 
+	 *
 	 * @return t
 	 */
 	public void glp()
@@ -3870,7 +3928,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Computes the average degree of this graph.
-	 * 
+	 *
 	 * @return the average degree
 	 */
 	public double getAverageDegree()
@@ -3881,7 +3939,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Computes the average degree of this graph.
-	 * 
+	 *
 	 * @param type
 	 *            the type of degree (edge or vertex)
 	 * @param direction
@@ -3902,7 +3960,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Computes a shortest path from the given source to the given destination.
-	 * 
+	 *
 	 * @param source
 	 *            a vertex
 	 * @param destination
@@ -3924,7 +3982,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Performs a BFS from the given vertex.
-	 * 
+	 *
 	 * @param source
 	 *            a vertex to start the BFS from.
 	 * @return the data that could be computed along the BFS.
@@ -3987,10 +4045,10 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	 * Computes the vertex adjacency of the graph in the form of a two-dimension
 	 * int array. This is useful for performance reasons and should be used when
 	 * the graph does not change very often.
-	 * 
+	 *
 	 * The set of vertices adjacent to vertex v are found in the array
 	 * getVertexAdjacencies()[v]
-	 * 
+	 *
 	 * @return
 	 */
 	public int[][] getOutNeighborhoods()
@@ -4027,7 +4085,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	/**
 	 * Computues a two-sweeps approximation of the diameter of this graph. This
 	 * algorithm is adequante to simple graphs.
-	 * 
+	 *
 	 * @return an approximation of the diameter.
 	 */
 	public int getTwoSweepBFSDiameterApproximatedDiameter()
@@ -4045,7 +4103,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Checks whether this graph is an antigraph.
-	 * 
+	 *
 	 * @return true if this graph is an antigraph, false otherwise.
 	 */
 	public boolean isAntigraph()
@@ -4065,7 +4123,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Computes a distance matrix for this graph.
-	 * 
+	 *
 	 * @return a distance matrix.
 	 */
 	public DistanceMatrix getDistanceMatrix(NumericalProperty edgeWeights)
@@ -4083,7 +4141,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Computes a adjacency matrix for this graph.
-	 * 
+	 *
 	 * @return a adjacency matrix.
 	 */
 	public AdjacencyMatrix getAdjacencyMatrix()
@@ -4093,7 +4151,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Computes a incidence matrix for this graph.
-	 * 
+	 *
 	 * @return a incidence matrix.
 	 */
 	public IntMatrix getIncidenceMatrix()
@@ -4103,7 +4161,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Deletes the given vertices from the graph.
-	 * 
+	 *
 	 * @param s
 	 *            the set of vertices to be removed from the graph.
 	 */
@@ -4125,7 +4183,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Sort all vertices by degree.
-	 * 
+	 *
 	 * @return a degree-sorted array of all vertices.
 	 */
 	public int[] sortVerticesByDegree()
@@ -4136,7 +4194,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	/**
 	 * Computes a graphic file containing a representation of this graph
 	 * generated by GraphViz.
-	 * 
+	 *
 	 * @param cmd
 	 *            the command to use (dot, neato, etc)
 	 * @param outputFormat
@@ -4173,7 +4231,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Checks if the given vertex is a source.
-	 * 
+	 *
 	 * @param v
 	 *            a vertex in the graph
 	 * @return true if the vertex is a source one, false otherwise.
@@ -4185,7 +4243,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Checks if the given vertex is a sink.
-	 * 
+	 *
 	 * @param v
 	 *            a vertex in the graph
 	 * @return true if the vertex is a sink one, false otherwise.
@@ -4197,7 +4255,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Checks if the given vertex is a leaf.
-	 * 
+	 *
 	 * @param v
 	 *            a vertex in the graph
 	 * @return true if the vertex is a leaf, false otherwise.
@@ -4237,7 +4295,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Determines the largest connected component in the graph.
-	 * 
+	 *
 	 * @return the set of vertices describing the largest connected component in
 	 *         the graph
 	 */
@@ -4270,7 +4328,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Computes a textual description for this graph.
-	 * 
+	 *
 	 * @return a textual description of not specified form.
 	 */
 	public String getDescription()
@@ -4289,7 +4347,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	/**
 	 * Ensure this graph has at least the specified amount of vertices. If not,
 	 * additional vertices will be created.
-	 * 
+	 *
 	 * @param n
 	 *            the minimum number of vertices required for this graph.
 	 */
@@ -4301,7 +4359,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	/**
 	 * Computes the maximum clique in this graph, using an ant-based algorithm
 	 * defined by Chistine Solnon. This algorithm is implemented in C.
-	 * 
+	 *
 	 * @return a set of vertices describing the clique
 	 */
 	public IntSet getMaximumClique()
@@ -4311,7 +4369,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Checks if this graph is chordal or not.
-	 * 
+	 *
 	 * @return true if this graph is chordal, false otherwise.
 	 */
 	public boolean isChordal()
@@ -4321,7 +4379,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Comptes the set of simplitial vertices in this graph.
-	 * 
+	 *
 	 * @return a set containing all simplitial vertices.
 	 */
 	public IntSet getSimplicialVertices()
@@ -4342,7 +4400,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	/**
 	 * Assign adequate color to the given vertices so that they distinguish
 	 * clearly on graphical views of this graph.
-	 * 
+	 *
 	 * @param vertices
 	 *            a set of vertices to be colored (selected)
 	 */
@@ -4358,7 +4416,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Computes a report for this graph.
-	 * 
+	 *
 	 * @return A reference to a PDF file containing the report.
 	 * @throws IOException
 	 */
@@ -4371,7 +4429,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Computes the set of source vertices in this graph.
-	 * 
+	 *
 	 * @return a set containing all source vertices.
 	 */
 	public IntSet getSources()
@@ -4391,7 +4449,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Computes the set of sink vertices in this graph.
-	 * 
+	 *
 	 * @return a set containing all sink vertices.
 	 */
 	public IntSet getSinks()
@@ -4471,7 +4529,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Checks if this graph is bipartite.
-	 * 
+	 *
 	 * @return true is this graph is bipartite, false otherwise.
 	 */
 	public boolean isBipartite()
@@ -4482,7 +4540,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Connect the given set of vertices as a clique.
-	 * 
+	 *
 	 * @param s
 	 *            a set of vertices in the graph
 	 */
@@ -4576,7 +4634,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Retrieves the vertex at the center of the graph.
-	 * 
+	 *
 	 * @return the vertex at the center of the graph.
 	 */
 	public int getCenter()
@@ -4717,7 +4775,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 	}
 
 	/**
-	 * 
+	 *
 	 * @param a
 	 * @param b
 	 * @param allowMultipleEdges
@@ -4753,7 +4811,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Builds a new graph from the given CAIDA map.
-	 * 
+	 *
 	 * @param filename
 	 * @throws ParseException
 	 * @throws IOException
@@ -4981,7 +5039,7 @@ public abstract class Grph implements GrphPrimitives, Cloneable, Serializable
 
 	/**
 	 * Display this graph in a graphical frame, using GraphStream 0.4.2.
-	 * 
+	 *
 	 * @return
 	 */
 	public GraphViewerRemote displayGraphstream_0_4_2()
